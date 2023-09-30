@@ -34,7 +34,6 @@ int main()
             {
                 cout << i << " ";
                 num = num/i;
-                i = 1;
             }
         }
     }
