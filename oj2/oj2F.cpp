@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-
+//打印三角函数值
 int main(){
     double pi = 3.1415926;
     double i = 0;
