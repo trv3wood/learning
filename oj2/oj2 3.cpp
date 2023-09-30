@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//目前不过，oj发什么大病
 void decimal_to_binary(int decimal)
 {
     int binary[9], i = 0;
