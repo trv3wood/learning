@@ -1,37 +1,27 @@
 #include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
-//没过
-void decimal_to_binary(int decimal)
-{
-    int binary[9], i = 0;
-    for (; decimal > 0; ++i)
-    {
-        binary[i] = decimal % 2;
-        decimal /= 2;
+
+string decimal2binary(int n) {
+    string binary = "";
+    while (n > 0) {
+        binary = to_string(n % 2) + binary;
+        n /= 2;
     }
-    for (i--; i >= 0; i--)
-    {
-        cout << binary[i];
-    }
+    return binary;
 };
-
-int main()
-{
-    cout << "Decimal\tbinary\t\toctal\thexadecimal" << endl;
-
-    for (int i = 1; i < 128; ++i)
-    {
+int main() {
+    cout << "decimal\tbinary\t\toctal\thexadecimal" << endl;
+    for (int i = 1; i < 128; ++i) {
         cout << dec << i << "\t";
-        decimal_to_binary(i);
-        cout << "\t\t";
+        cout <<decimal2binary(i)<<"\t\t";
         cout << oct << i << "\t";
         cout << hex << i << "\t" << endl;
     }
-    for (int i = 128; i <= 256; ++i)
-    {
+    for (int i = 128; i <= 256; ++i) {
         cout << dec << i << "\t";
-        decimal_to_binary(i);
-        cout << "\t";
+        cout <<decimal2binary(i)<<"\t";
         cout << oct << i << "\t";
         cout << hex << i << "\t" << endl;
     }
