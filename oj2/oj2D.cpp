@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//提取整数的素数因子
 bool isPrime(int n)
 {
     if (n <= 1)
