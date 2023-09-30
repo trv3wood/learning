@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//用迭代公式计算平方根
 double squareRoot(int n,double epsilon){
     double x0=n*0.5,x1;
     if(n<0){
