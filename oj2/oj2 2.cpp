@@ -1,7 +1,6 @@
-//编程模拟“剪刀、石头、布”游戏。
 #include <iostream>
 using namespace std;
-
+//模拟“剪刀、石头、布”游戏。
 int main(){
     char a,b;
     while (cin>>a>>b)
