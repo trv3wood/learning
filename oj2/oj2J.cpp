@@ -2,6 +2,7 @@
 using namespace std;
 
 //J终于过了，是我没理解题意，不是X*Y*Z，而是每位数字啊啊啊
+//已知XYZ+YZZ=532，其中X、Y和Z为数字，编写程序求出X、Y和Z的值
 int main()
 {
     for (int x = 1; x < 6; x++)
