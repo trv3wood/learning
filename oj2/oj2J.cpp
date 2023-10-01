@@ -1,30 +1,20 @@
 #include <iostream>
-
 using namespace std;
-//没过
+
+//J终于过了，是我没理解题意，不是X*Y*Z，而是每位数字啊啊啊
 int main()
 {
-    for (int Y = 1; Y < 150; Y++)
+    for (int x = 1; x < 6; x++)
     {
-        for (int Z = 1; Z < 150; Z++)
+        for (int y = 1; y < 6; y++)
         {
-            int X = 5;
-            int sum = X * Y * Z + Y * Z * Z;
-            while (sum > 532)
+            for (int z = 0; z < 10; z++)
             {
-                X--;
-                sum = X * Y * Z + Y * Z * Z;
-            }
-            while (sum < 532)
-            {
-                X++;
-                sum = X * Y * Z + Y * Z * Z;
-            }
-            if (sum == 532)
-            {
-            cout << "X=" << X<<endl << "Y=" << Y <<endl<< "Z=" << Z << endl;
+                if (532 == 100 * x + 110 * y + 12*z)
+                {
+                    cout << "x=" << x <<endl<< "y=" << y <<endl<< "z=" << z << endl;
+                }
             }
         }
     }
-    return 0;
 }
