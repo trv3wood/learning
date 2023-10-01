@@ -1,18 +1,30 @@
 #include <iostream>
-//不通过
+
 using namespace std;
-
-int main() {
-   float X, Y, Z;
-
-    for (X = 0; X <= 500; X++) {
-        for (Y = 0; Y <= 500; Y++) {
-            for (Z = 0; Z <= 500; Z++) {
-                if (X * Y * Z + Y * Z * Z == 532) {
-                   cout << "X=" << X << endl << "Y=" << Y <<endl<< "Z=" << Z << endl;
-               }
-           }
-       }
-   }
+//没过
+int main()
+{
+    for (int Y = 1; Y < 150; Y++)
+    {
+        for (int Z = 1; Z < 150; Z++)
+        {
+            int X = 5;
+            int sum = X * Y * Z + Y * Z * Z;
+            while (sum > 532)
+            {
+                X--;
+                sum = X * Y * Z + Y * Z * Z;
+            }
+            while (sum < 532)
+            {
+                X++;
+                sum = X * Y * Z + Y * Z * Z;
+            }
+            if (sum == 532)
+            {
+            cout << "X=" << X<<endl << "Y=" << Y <<endl<< "Z=" << Z << endl;
+            }
+        }
+    }
     return 0;
 }

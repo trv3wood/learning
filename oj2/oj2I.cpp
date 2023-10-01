@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//打印空心方形
 int main(){
     int n;
     while (cin>>n)
