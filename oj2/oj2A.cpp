@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 //比大小，从小到大输出
+//没什么稀奇，过于丑陋的穷举(
 int main()
 {
     int a, b, c;
