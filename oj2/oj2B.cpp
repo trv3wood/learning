@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 //模拟“剪刀、石头、布”游戏。
+//利用ASCII码判断
 int main(){
     char a,b;
     while (cin>>a>>b)
