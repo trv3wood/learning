@@ -1,5 +1,6 @@
 #include <iostream>
 // Forward declaration of isBadVersion API.
+//二分查找法
 class Solution {
 public:
     int firstBadVersion(int n) {
