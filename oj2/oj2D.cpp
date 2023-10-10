@@ -17,9 +17,7 @@ int main() {
   while (cin >> num) {
     if (isPrime(num))
       cout << num << " ";
-    else if (num == 1) {
-      return 0;
-    } else
+    else
       for (int i = 2; i <= num; i++) {
         while (isPrime(i) && num % i == 0) {
           cout << i << " ";
