@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//use zeller formula
 int getDayOfWeek(int year, int month, int day) {
     if (month == 1 || month == 2) {
         month += 12;
@@ -15,6 +15,9 @@ int getDayOfWeek(int year, int month, int day) {
 int main(){
     int year, month, day;
     while(cin >> year >> month >> day)
-        cout << getDayOfWeek(year, month, day) << endl;
+        if(getDayOfWeek(year, month, day) == 0)
+            cout << 7 << endl;
+        else
+            cout << getDayOfWeek(year, month, day) << endl;
     return 0;
 }

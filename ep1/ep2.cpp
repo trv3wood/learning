@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-//好像没什么问题  
+//终于~过了~
 int calculate(int &n, int &x) {
   int digit = x;
   int sum = 0;
@@ -10,8 +10,8 @@ int calculate(int &n, int &x) {
   }
   return sum;
 };
-int add(int& n,int& x) {
-  int result = 0;
+long long add(int& n,int& x) {
+  long long result = 0;
   for (int i = 1; i < n + 1;i++) {
     result += calculate(i,x);
   }
@@ -20,8 +20,8 @@ int add(int& n,int& x) {
 
 int main() {
   int n, x;
-  while (cin >> n >> x) {
-    cout << add(n, x);
+  while (cin >> x >> n) {
+    cout << add(n, x)<< endl;
   }
   return 0;
 }
