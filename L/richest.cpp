@@ -1,28 +1,28 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 using namespace std;
-// 1672. Richest Customer Wealth(https://leetcode.com/problems/richest-customer-wealth/)
+//http://leetcode 1672
 class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts) {
-        vector<int> wealthList;
-        int sum;
-        for(int i =0;i<accounts.size();i++){
-            for(int j = 0;j < accounts[i].size();++j){
-                sum += accounts[i][j];
-            }
-            wealthList.push_back(sum);
-            sum = 0;
+    vector<int>onesWealth;
+    int add;
+    for(int i = 0;i<accounts.size();++i){
+        for(int j=0;j<accounts[0].size();j++){
+            add+=accounts[i][j];
         }
-        auto max = max_element(wealthList.begin(),wealthList.end());
-        int wealthest = *max;
-        return wealthest;
-    }
+        onesWealth.emplace_back(add);
+        add=0;
+        }
+    //sort(onesWealth.begin(),onesWealth.end());
+    //return onesWealth[onesWealth.size()-1];
+    vector<int>::iterator Max = max_element(onesWealth.begin(),onesWealth.end());
+    return *Max;
+  }
 };
 int main(){
-    vector<vector<int>> accounts = {{1,2,3},{3,2,1}};
-    Solution sol;
-    int result = sol.maximumWealth(accounts);
-    cout << result;
+  vector<vector<int>> accounts = {{1,2,3},{3,2,1}};
+  Solution s;
+  cout<<s.maximumWealth(accounts);
 }
