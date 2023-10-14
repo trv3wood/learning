@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+//三个数比大小另解
 int main(){
     int x,y,z;
     while(std::cin>>x>>y>>z){
