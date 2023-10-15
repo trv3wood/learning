@@ -10,9 +10,16 @@ int getDayOfWeek(int year, int month, int day) {
       sum += 365;
   }
   int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-  for(int i = 0; i < month - 1; ++i) {
-    sum += days[i];
+  if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+      days[1]=29;
+      for(int i = 0; i < month - 1; ++i) {
+        sum += days[i];
+    }
+  }else{
+      for(int i = 0; i < month - 1; ++i) {
+        sum += days[i];
   }
+}
   sum+=day;
   int weekday = sum % 7;
   return weekday;
