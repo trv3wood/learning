@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-//给定一个数字数组，其中只有一个数字出现一次，其他数字都出现两次，找出这个数字
+//给定一个数字数组，其中只有两个数字出现一次，其他数字都出现两次，找出这个数字
 //方法1：排序，然后遍历，找到只出现一次的数字
 class Solution {
 public:
