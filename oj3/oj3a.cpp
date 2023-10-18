@@ -8,7 +8,7 @@ double sh(double x){
 }
 
 int main(){
-    int x;
+    double x;
     while(cin>>x){
         double dy = 1 + sh(x);
         double y = sh(dy) /(sh(2*x)+sh(3*x));
