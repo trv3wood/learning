@@ -1,4 +1,18 @@
 # oj2
+
+- [oj2](#oj2)
+   - [A 三数排序](#A)
+   - [B 石头剪刀布](#B)
+   - [C 打印二、八、十六进制数](#C)
+   - [D 提取整数的素数因子](#D)
+   - [E 用迭代公式计算平方根](#E)
+   - [F 打印三角函数值](#F)
+   - [G 求水仙花数](#G)
+   - [H 打印1000以内的完数](#H)
+   - [I 打印空心方形](#I)
+   - [J 解三元方程](#J)
+   - [K 加密解密](#K)
+
 ## A
 ```cpp
 #include <iostream>
@@ -53,6 +67,7 @@ int main(){
     }
 }
 ``````
+[回到顶部](#oj2)
 ## B
 ```cpp
 #include <iostream>
@@ -81,7 +96,9 @@ int main() {
   }
 }
 ``````
+[回到顶部](#oj2)
 ## C
+*进制转换*
 ```cpp
 #include <iomanip>
 #include <iostream>
@@ -113,7 +130,10 @@ int main() {
   }
 }
 ``````
+[回到顶部](#oj2)
+
 ## D
+*提取素数因子*
 ```cpp
 #include <iostream>
 using namespace std;
@@ -144,7 +164,10 @@ int main() {
   }
 }
 ``````
+[回到顶部](#oj2)
+
 ## E
+*迭代法*
 ```cpp
 #include <iostream>
 using namespace std;
@@ -175,38 +198,29 @@ int main(){
     
 }
 ``````
+[回到顶部](#oj2)
+
 ## F
+*三角函数*
 ```cpp
-#include <iostream>
-using namespace std;
-//用迭代公式计算平方根
-double squareRoot(int n,double epsilon){
-    double x0=n*0.5,x1;
-    if(n<0){
-        throw invalid_argument("n must be positive");
-    } 
-    else if(n==0 || n==1){
-        return n;
-    }
-    else
-    while(abs(x1*x1-n)>=epsilon) {
-        x1=(n/x0+x0)*0.5;
-        x0=x1;
-    }
-    return x1;
-};
-
-int main(){
-    int n;
-    double epsilon=1e-8;
-    while (cin>>n)
-    {
-        cout<<squareRoot(n,epsilon)<<endl;
-    }
-    
-}
+#include <iostream> 
+ #include <cmath> 
+ using namespace std; 
+ //打印三角函数值 
+ int main(){ 
+     double pi = 3.1415926; 
+     double i = 0; 
+  
+     for (; i <= 180; i += 10){ 
+         double x = i / 180 * pi; 
+         cout << sin(x) << " " << cos(x) << " " << tan(x) << endl; 
+     } 
+ }
 ``````
+[回到顶部](#oj2)
+
 ## G
+*如题*
 ```cpp
 #include <iostream>
 //求水仙花数
@@ -221,12 +235,15 @@ int main() {
     }
 }
 ``````
+[回到顶部](#oj2)
+
 ## H
+*如题*
 ```cpp
 #include <iostream>
 using namespace std;
 // 打印1000以内的完数
-bool isC(int n) {
+bool isPerfect(int n) {
   int add = 0;
   if (n == 1) {
     return false;
@@ -244,13 +261,16 @@ bool isC(int n) {
 
 int main() {
   for (int j = 1; j <= 1000; ++j) {
-    if (isC(j)) {
+    if (isPerfect(j)) {
       cout << j << endl;
     }
   }
 }
 ``````
+[回到顶部](#oj2)
+
 ## I
+*如题*
 ```cpp
 #include <iostream>
 using namespace std;
@@ -275,7 +295,10 @@ int main() {
   }
 }
 ``````
+[回到顶部](#oj2)
+
 ## J
+*解三元方程*
 ```cpp
 #include <iostream>
 using namespace std;
@@ -299,7 +322,10 @@ int main()
     }
 }
 ``````
+[回到顶部](#oj2)
+
 ## K
+*加密与解密*
 ```cpp
 #include <iostream>
 #include <string>
@@ -314,6 +340,7 @@ string encrypt(int plainText) {
     for(int i = 0; i < 6; i++) {
         int num = plainText % 10;
         int encryptedText = (num + 7) % 10;
+        //加密：+7模10
         encrypted = encrypted + to_string(encryptedText);
         plainText /= 10;
     }
@@ -327,6 +354,7 @@ void decrypt(string encrypted) {
     
     for(int i = 5; i >= 0; --i) {
         int decryptedText = (encrypted[i]-'0'+3) % 10;
+        //解密：+3模10
         cout<< decryptedText ;
     }
     
@@ -339,7 +367,7 @@ int main() {
     while(cin>>plainText) {
         
         if(plainText>=100000 && plainText<=999999){
-        
+        //检查输入是否为五位正整数
         string encrypted = encrypt(plainText);
         
         cout <<"加密：";
@@ -361,3 +389,4 @@ int main() {
     }
 }
 ``````
+[回到顶部](#oj2)
