@@ -1,6 +1,5 @@
 # learning 
-
-The repository is created by a college student learning C++. 
+**The repository is created by a college student learning C++. **
 ---
 ## Content
 - [oj1](docs/oj1.md)
