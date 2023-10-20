@@ -1,0 +1,3 @@
+/mnt/d/code vsc/cpp/learning/oj3/oj3I/CMakeFiles/oj3I.dir
+/mnt/d/code vsc/cpp/learning/oj3/oj3I/CMakeFiles/edit_cache.dir
+/mnt/d/code vsc/cpp/learning/oj3/oj3I/CMakeFiles/rebuild_cache.dir
