@@ -1,8 +1,8 @@
 # oj1
  - oj1
    - [oj1A](#A)
-   - [oj1B](md/#B)
-   - [oj1C](docs/oj1.md/#C)
+   - [oj1B](#B)
+   - [oj1C](#C)
 ## A
 *in squre*
 
