@@ -1,5 +1,5 @@
 # oj3题目
-![oj3题目](/image/oj3_assignment.jpg)
+![oj3题目](/image/oj3_assignment.png)
 
 ## 目录
 - oj3
