@@ -1,6 +1,5 @@
 # oj3题目
 ![oj3题目](/image/oj3_assignment.png)
-
 ## 目录
 - oj3
    - [A 双曲函数计算](#A)
