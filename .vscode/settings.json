@@ -44,4 +44,5 @@
         "streambuf": "cpp",
         "typeinfo": "cpp"
     },
+    "cmake.sourceDirectory": "D:/code vsc/cpp/learning/oj3/oj3I",
 }

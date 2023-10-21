@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-//计算利润提成
+// 计算利润提成
 int main() {
   double profit, bonus;
   while (cin >> profit) {

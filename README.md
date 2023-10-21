@@ -6,7 +6,7 @@
    - [oj1A](docs/oj1.md)
    - [oj1B](docs/oj1.md)
    - [oj1C](docs/oj1.md)
-- [oj2](oj2)
+- [oj2](docs/oj2.md)
    - [A 三数排序](docs/oj2.md)
    - [B 石头剪刀布](docs/oj2.md)
    - [C 打印二、八、十六进制数](docs/oj2.md)
@@ -25,6 +25,14 @@
    - [D 计算星期几](docs/ep1.md)
    - [E 打印阶梯型](docs/ep1.md)
 - [oj3](docs/oj3.md)
+   - [A 双曲函数计算](docs/oj3.md)
+   - [B 溢出判断](docs/oj3.md)
+   - [C 猜数(二分法)](docs/oj3.md)
+   - [D 编写函数求最值](docs/oj3.md)
+   - [E 多项式递归求和](docs/oj3.md)
+   - [F 循环的等价递归](docs/oj3.md)
+   - [G 梯形法求积分](docs/oj3.md)
+   - [H 排序函数重载](docs/oj3.md)
 ## Update
 >OJ3(october 20) 
  
@@ -35,4 +43,3 @@
 >docs/oj2(September 28) 
  
 更新了docs/oj2,OJ1的代码 
-
