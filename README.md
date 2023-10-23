@@ -18,7 +18,7 @@
    - [I 打印空心方形](docs/oj2.md)
    - [J 解三元方程](docs/oj2.md)
    - [K 加密解密](docs/oj2.md)
-- [lab class 1](docs/ep1.md)
+- [Lab Class 1](docs/ep1.md)
    - [A 计算利润提成](docs/ep1.md)
    - [B 3+33+333](docs/ep1.md)
    - [C 小球反弹](docs/ep1.md)
