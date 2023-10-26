@@ -7,8 +7,7 @@ public:
         int count = 0;
         int numCopy = num;
         while(num > 0) {
-            int tmp = num % 10;
-            if(numCopy % tmp == 0) {count++;}
+            if(numCopy % (num % 10)== 0) {count++;}
             num /= 10;
         }
     return count;
