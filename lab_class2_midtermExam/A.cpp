@@ -11,42 +11,39 @@
 //input 8
 //1+2+3+4+5+6=6+7+8=21
 //output 6
-#include <iostream>
-using namespace std;
-
-//define a function to calculate the sum of a to b
-inline int loopAdd(int a, int b) {
-    int res = 0;
-    res = (a + b) * (b - a + 1) / 2;
-    return res;
-}
-
-//search the midNum
-int find(int& n) {
-    int midNum = n - 1;
-    int front = loopAdd(1, midNum);//sum of 1 to midNum
-    int back = loopAdd(midNum, n);//sum of midNum to n
-    while(midNum > n / 2 && midNum < n) {
-        if(front == back)//find the midNum
-            return midNum;
-        else if(front > back) {//midNum is too big
-            //move the midNum(like a pointer) to the left
-            front -= midNum;
-            midNum -= 1;
-            back += midNum;
-        }
-        else {//midNum is too small
-            //move the midNum(like a pointer) to the right
-            back -= midNum;
-            midNum += 1;
-            front += midNum;
-        }
-    }
-    return -1;
-}
-int main() {
-    int n;
-    while(cin >> n) {
-        cout << find(n) << endl;
-    }
-}
+#include <iostream> 
+using namespace std; 
+  
+//define a function to calculate the sum of a to b 
+inline int loopAdd(int a, int b) { 
+    int res = 0; 
+    res = (a + b) * (b - a + 1) / 2; 
+    return res; 
+} 
+  
+ //search the midNum 
+ int find(int& n) { 
+     int midNum = n; 
+     int front = loopAdd(1, midNum);//sum of 1 to midNum 
+     int back = loopAdd(midNum, n);//sum of midNum to n 
+     while(midNum > n / 2 && midNum <= n) { 
+         if(front == back)//find the midNum 
+             return midNum; 
+         else if(front > back) {//midNum is too big 
+             //move the midNum(like a pointer) to the left 
+             front -= midNum; 
+             midNum -= 1; 
+             back += midNum; 
+         } 
+         else {
+             return -1;
+         } 
+     } 
+     return -1; 
+ } 
+ int main() { 
+     int n; 
+     while(cin >> n) { 
+         cout << find(n) << endl; 
+     } 
+ }
