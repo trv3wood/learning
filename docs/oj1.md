@@ -1,9 +1,9 @@
-# oj1
-## 目录
- - oj1
-   - [oj1A](#A)
-   - [oj1B](#B)
-   - [oj1C](#C)
+# assignment1
+## contents 
+ - assignment1
+   - [A](#A)
+   - [B](#B)
+   - [C](#C)
 ## A
 *in squre*
 
@@ -19,7 +19,7 @@ int main()
     }
 }
 ```
-[返回目录](#目录)
+[back to contents](#contents)
 ## B
 *找最小值*
 
@@ -33,7 +33,7 @@ int main(){
     }
 }
 ```
-[返回目录](#目录)
+[back to contents](#contents)
 ## C
 *逆序打印五位数*
 
@@ -57,4 +57,4 @@ int main()
      }
 }
 ``````
-[返回目录](#目录)
+[back to contents](#contents)
