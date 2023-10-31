@@ -23,23 +23,24 @@ inline int loopAdd(int a, int b) {
 
 //search the midNum
 int find(int& n) {
+    if(n == 1)
+        return 1;
     int midNum = n - 1;
     int front = loopAdd(1, midNum);//sum of 1 to midNum
     int back = loopAdd(midNum, n);//sum of midNum to n
     while(midNum > n / 2 && midNum < n) {
         if(front == back)//find the midNum
             return midNum;
-        else if(front > back) {//midNum is too big
+        else if(front > back) {
+            
+            //midNum is too big
             //move the midNum(like a pointer) to the left
             front -= midNum;
             midNum -= 1;
             back += midNum;
         }
-        else {//midNum is too small
-            //move the midNum(like a pointer) to the right
-            back -= midNum;
-            midNum += 1;
-            front += midNum;
+        else {
+            return -1;  
         }
     }
     return -1;
