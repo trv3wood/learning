@@ -4,42 +4,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-float ave(vector<float> &v) {
-    float sum = 0;
-    for(float num : v) {
+double ave(vector<double> &v) {
+    double sum = 0;
+    for(double num : v) {
         sum += num;
     }
     return sum / v.size();
 }
 
-float dev(vector<float> &v) {
-    float sum = 0;
-    float average = ave(v);
-    for(float num : v) {
+double dev(vector<double> &v) {
+    double sum = 0;
+    double average = ave(v);
+    for(double num : v) {
         sum += (num - average) * (num - average);
     }
     return sqrt(sum / v.size());
 }
-//float ave(vector<float> &v) {
-    //float sum = accumulate(v.begin(), v.end(), 0.0);
+//double ave(vector<double> &v) {
+    //double sum = accumulate(v.begin(), v.end(), 0.0);
     //return sum / v.size();
 //}
 
-//float dev(vector<float> &v) {
-    //float average = ave(v);
-    //float sum = accumulate(v.begin(), v.end(), 0.0, [average](float acc, float num) {
+//double dev(vector<double> &v) {
+    //double average = ave(v);
+    //double sum = accumulate(v.begin(), v.end(), 0.0, [average](double acc, double num) {
         //return acc + pow(num - average, 2);
     //});
     //return sqrt(sum / v.size());
-//}
-int main() {
-    int m;
-    while(cin >> m) {
-        vector<float> scores(m);
-        for(int i = 0; i < m; i++) {
-            cin >> scores[i];
-        }
-        cout << ave(scores) << " " << dev(scores) << endl;
-    } 
-}
-    
+//} 

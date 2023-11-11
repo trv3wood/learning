@@ -9,9 +9,8 @@ void listSort(vector<int> &v) {
     }
     sort(v.begin(), v.end(), [&](int a, int b) {return a > b;});
     for(int num : v) {
-        cout << num << "\t" << map[num] << endl;
+        cout << num << " " << map[num] << endl;
     }
-    cout << endl;
 }
 //桶排序
 void listSort2(int arr[]) {
@@ -45,9 +44,16 @@ void listSort2(int arr[]) {
     }
     cout << endl;
 }
-//选择排序(to do)
+//选择排序(to do),从大到小，输出原下标
+
 int main() {
-    vector<int> v = {1, 2, 3, 4, 5};
-    listSort(v);
+    int num;
+    while(cin >> num) {
+        vector<int> nums(num);
+        for(int i = 0; i < num; i++) {
+            cin >> nums[i];
+        }
+        listSort(nums);
+    }
     return 0;
 }

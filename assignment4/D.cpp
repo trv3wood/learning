@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 //回文数
 bool isPalindrome(int x) {
     if(x < 0)
