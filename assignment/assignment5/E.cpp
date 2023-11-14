@@ -19,3 +19,39 @@
 0 0
 提示
 多组测试用例，每组输入以输入0结束*/
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string str;
+    while(getline(cin, str)) {
+        stringstream ss(str);
+        int num;
+        vector<int> nums;
+        while(ss >> num)
+            nums.emplace_back(num);
+        nums.pop_back();
+
+        
+        int A = 0;
+        int B = 0;
+        for(int n : nums) {
+            int count = 0;
+            int x = n;
+            int lg = 0;
+            while(x > 0) {
+                x = (x >> 1);
+                lg++;
+            }
+            while(n > 0) {
+                n &= (n - 1);
+                count++;
+            }
+            if(count > lg - count)
+                A++;
+            else
+                B++;
+        }
+        cout << A << " " << B << endl;
+    }
+}
