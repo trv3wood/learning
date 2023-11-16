@@ -31,18 +31,18 @@ int main() {
     while(cin >> n) {
         vector<int> v;
         for(int i = 1; i <= n; i++)
-            v.push_back(i);
+            v.push_back(i);//初始化
 
-        int cnt = 0;
-        while(v.size() > 1) {
-            for(int i = 0; i < v.size(); i++) {
-                if(isPrime(++cnt)) {
-                    cout << v[i] << " ";
-                    v.erase(v.begin() + i);
-                    i--;
+        int cnt = 0;//报数
+        while(v.size() > 1) {//只剩一个人时退出循环
+            for(int i = 0; i < v.size(); i++) {//遍历
+                if(isPrime(++cnt)) {//报数
+                    cout << v[i] << " ";//输出
+                    v.erase(v.begin() + i);//删除
+                    i--;//避免越界
                 }
             }
         }
-        cout << v[0] << endl;
+        cout << v[0] << endl;//输出最后一个人
     }
 }
