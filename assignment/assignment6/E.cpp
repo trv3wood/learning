@@ -27,31 +27,29 @@ using namespace std;
 int main() {
     int n1, n2;
     while(cin >> n1 >> n2) {
-        set<char> s1, s2;
-        char c;
+        set<unsigned> s1, s2;
         for(int i = 0; i < n1; i++) {
-            cin >> c;
-            s1.insert(c);
+            char tmp;
+            cin >> tmp;
+            unsigned t = toascii(tmp);
+            s1.insert(t);
         }
         for(int i = 0; i < n2; i++) {
-            cin >> c;
-            s2.insert(c);
+            char tmp;
+            cin >> tmp;
+            unsigned t = toascii(tmp);
+            s2.insert(t);
         }
-        set<char> s3, s4, s5;
-        set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), inserter(s3, s3.begin()));
+       
+        set<unsigned> s4;
         set_union(s1.begin(), s1.end(), s2.begin(), s2.end(), inserter(s4, s4.begin()));
+        for(auto i : s4) cout << char(i) << " ";cout << endl;
+        set<unsigned> s3;
+        set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), inserter(s3, s3.begin()));
+        for(auto i : s3) cout << char(i) << " ";cout << endl;
+        set<unsigned> s5;
         set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(), inserter(s5, s5.begin()));
-        for(auto it = s3.begin(); it != s3.end(); it++) {
-            cout << *it << " ";
-        }
-        cout << endl;
-        for(auto it = s4.begin(); it != s4.end(); it++) {
-            cout << *it << " ";
-        }
-        cout << endl;
-        for(auto it = s5.begin(); it != s5.end(); it++) {
-            cout << *it << " ";
-        }
+        for(auto i : s5) cout << char(i) << " ";
         cout << endl;
     }
     return 0;
