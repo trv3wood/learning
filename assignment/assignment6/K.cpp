@@ -25,6 +25,14 @@ struct List {
     List* next;
     List(int d, List* n) : data(d), next(n) {}
     List() {}
+    ~List() {
+        List* p = this;
+        while(p) {
+            List* tmp = p;
+            p = p->next;
+            delete tmp;
+        }
+    }
 };
 
 int main() {
@@ -103,10 +111,10 @@ int main() {
         for(auto i : diff) cout << i << " ";
         cout << endl;
 
-
         //delete
         delete head1;
         delete head2;
+
         
     }
 }

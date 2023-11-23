@@ -66,5 +66,6 @@ int main() {
         }
         //计算相同值的节点及其个数
         Count(head);
+        delete head;
     }
 }
