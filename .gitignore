@@ -1,1 +1,3 @@
 /.vscode
+/assignment/*/demo.cpp
+/assignment/*/*.exe
