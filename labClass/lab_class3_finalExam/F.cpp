@@ -47,35 +47,104 @@ int main() {
                 cin >> board[i][j];
             }
         }
-        int move[] = {0, 1, 0, -1, 0};
-        for(int i = 0; i < 4; i++) {
-            int dx = move[i], dy = move[i + 1];
-            int nx = x + dx, ny = y + dy;//下一个位置
-            while(withinRange(nx, ny)) {
-                //判断是否可以移动
-                if(board[nx][ny] == 0) {//空白
-                    board[nx][ny] = 3;
-                } else if(board[nx][ny] == 1) {//本方棋子
-                    if(withinRange(nx + dx, ny + dy) && board[nx + dx][ny + dy] == 2) {
-                        board[nx + dx][ny + dy] = 3;
-                    }
-                    break;
-                } else {
-                    nx += dx;
-                    ny += dy;
-                    while(withinRange(nx, ny)) {
-                        if(board[nx][ny] == 0) {
-                            board[nx][ny] = 3;
-                        } else if(board[nx][ny] == 1) {
-                            break;
+        int moveX = x;
+        int moveY = y;
+        //占空位
+        // up
+        while(withinRange(moveX - 1, y)) {
+            moveX--;
+            if(board[moveX][moveY] == 0) {
+                board[moveX][moveY] = 3;
+            } else if(board[moveX][moveY] == 1 || board[moveX][moveY] == 2) {
+                break;
+            }
+        }
+        //down
+        moveX = x;
+        moveY = y;
+        while(withinRange(moveX + 1, y)) {
+            moveX++;
+            if(board[moveX][moveY] == 0) {
+                board[moveX][moveY] = 3;
+            } else if(board[moveX][moveY] == 1 || board[moveX][moveY] == 2) {
+                break;
+            }
+        }
+        //left
+        moveX = x;
+        moveY = y;
+        while(withinRange(x, moveY - 1)) {
+            moveY--;
+            if(board[moveX][moveY] == 0) {
+                board[moveX][moveY] = 3;
+            } else if(board[moveX][moveY] == 1 || board[moveX][moveY] == 2) {
+                break;
+            }
+        }
+        //right
+        moveX = x;
+        moveY = y;
+        while(withinRange(x, moveY + 1)) {
+            moveY++;
+            if(board[moveX][moveY] == 0) {
+                board[moveX][moveY] = 3;
+            } else if(board[moveX][moveY] == 1 || board[moveX][moveY] == 2) {
+                break;
+            }
+        }
+        //吃子
+        //遍历所在行
+        for(int i = 0; i < 9; i++) {
+            if(board[x][i] == 2) {
+                //只间隔一个棋子 1或2
+                if(i < y) {
+                    int count = 0;
+                    for(int j = i + 1; j < y; j++) {
+                        if(board[x][j] != 0) {
+                            count++;
                         }
-                        nx += dx;
-                        ny += dy;
                     }
-                    break;
+                    if(count == 1) {
+                        board[x][i] = 3;
+                    }
+                } else {
+                    int count = 0;
+                    for(int j = y + 1; j < i; j++) {
+                        if(board[x][j] != 0) {
+                            count++;
+                        }
+                    }
+                    if(count == 1) {
+                        board[x][i] = 3;
+                    }
                 }
-                nx += dx;
-                ny += dy;
+            }
+        }
+        //遍历所在列
+        for(int i = 0; i < 10; i++) {
+            if(board[i][y] == 2) {
+                //只间隔一个棋子 1或2
+                if(i < x) {
+                    int count = 0;
+                    for(int j = i + 1; j < x; j++) {
+                        if(board[j][y] != 0) {
+                            count++;
+                        }
+                    }
+                    if(count == 1) {
+                        board[i][y] = 3;
+                    }
+                } else {
+                    int count = 0;
+                    for(int j = x + 1; j < i; j++) {
+                        if(board[j][y] != 0) {
+                            count++;
+                        }
+                    }
+                    if(count == 1) {
+                        board[i][y] = 3;
+                    }
+                }
             }
         }
         for(int i = 0; i < 10; i++) {
@@ -86,4 +155,4 @@ int main() {
         }
     }
 
-}
+}       
