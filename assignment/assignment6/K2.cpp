@@ -28,7 +28,8 @@
 //怀疑是OJ新加的限制，因为我之前写的K.cpp是可以通过的。
 //K2.cpp在OJ上可以通过，但是我觉得这个代码写的很烂，而且我也不知道为什么要用链表写这个。
 
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 struct Node {
@@ -140,5 +141,11 @@ int main() {
             cout << ptr->data << " ";
         }
         cout << endl;
+
+        delete head1;
+        delete head2;
+        delete unionHead;
+        delete intersectionHead;
+        delete differenceHead;
     }
 }
