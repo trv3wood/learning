@@ -19,6 +19,8 @@
 & * + - / 5 8
 - 5
 +*/
+
+//emmm我没用位运算，直接用了set
 #include <iostream>
 #include <algorithm>
 #include <set>

@@ -17,12 +17,16 @@
 注意题目中的结构体表示的一个复数采用两个double型变量进行定义；
 输出的时候注意使用函数setiosflags(rnm要用个锤子，纯纯误导人)*/
 
+//这题不难，只是输出格式有点麻烦
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
 struct ComplexNumber {
+    //定义结构体表示复数
     double real, imag;
+    //构造函数
     ComplexNumber(double r, double i) {
         real = r;
         imag = i;

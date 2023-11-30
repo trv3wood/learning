@@ -19,6 +19,8 @@
 & * + - / 5 8
 - 5
 +*/
+
+//位运算的写法
 #include <bits/stdc++.h>
 using namespace std;
 

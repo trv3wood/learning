@@ -33,7 +33,8 @@ int main() {
         Node* p = head;
         for (int i = 1; i < s.size(); i++) {
             Node* q = new Node(s[i], p);
-            p = q;
+            //这里要注意，要先建立新的节点，然后再把p指向新的节点
+            p = q;            
         }
         while (p != NULL) {
             cout << p->c;
