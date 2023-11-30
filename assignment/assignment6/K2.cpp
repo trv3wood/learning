@@ -18,150 +18,127 @@
 0 1 2 3 5 6 8 9 48 56 89
 2 5 9
 1 3 6 8*/
+
+//2023/11/23
 //好难...正经人谁会用链表写这个啊...
-//还是看看远处K.cppd的set吧
+//还是看看远处K.cpp的set吧
+
+//2023/11/30
+//好吧,我还是写了一下链表。K.cpp在OJ上内存超限了，我也不知道为什么，可能是因为我用了set吧。
+//怀疑是OJ新加的限制，因为我之前写的K.cpp是可以通过的。
+//K2.cpp在OJ上可以通过，但是我觉得这个代码写的很烂，而且我也不知道为什么要用链表写这个。
 
 #include <bits/stdc++.h>
 using namespace std;
 
-struct List {
+struct Node {
     int data;
-    List* next;
-    List(int d, List* n) {
+    Node* next;
+
+    Node(int d, Node* n) {
         data = d;
         next = n;
     }
-    List() {}
-    ~List() {
-        delete next;
+
+    Node() {}
+
+    void insert(int x) {
+        //判重
+        for (Node* ptr = this->next; ptr; ptr = ptr->next) {
+            if (ptr->data == x)
+                return;
+        }
+
+        if (this->next == nullptr) {
+            // Insert directly if the list is empty
+            this->next = new Node(x, nullptr);
+        } else if (this->next->data >= x) {
+            // Insert to the first position of the list
+            Node* newNode = new Node(x, this->next);
+            this->next = newNode;
+        } else {
+            Node* current = this->next;
+
+            while (current->next != nullptr && current->next->data < x) {
+                current = current->next;
+            }
+
+            // Now, current->next is either nullptr or the first node greater than or equal to x
+            Node* newNode = new Node(x, current->next);
+            current->next = newNode;
+        }
     }
 };
+int len1;
+int len2;
 
-List* getUnion(List* head1, List* head2) {
-    List* unionList = new List();
-    List* p = unionList;
-    for (List* p1 = head1; p1 != nullptr; p1 = p1->next) {//将head1中的元素全部添加到unionList中
-        if(p1->data == p->data) continue;// Add continue statement to avoid duplicate elements in the union
-        p->next = new List(p1->data, nullptr);
-        p = p->next;
-    }
-    for (List* p2 = head2; p2 != nullptr; p2 = p2->next) {
-        bool flag = true;
-        for (List* p1 = head1; p1 != nullptr; p1 = p1->next) {
-            if (p2->data == p1->data) {
-                flag = false;
-                break;
-            }
-        }
-        if(flag) {
-            p->next = new List(p2->data, nullptr);
-            p = p->next;
-        }
-    }
-    return unionList->next;
-}
-
-List* getIntersection(List* head1, List* head2) {
-    List* intersection = new List();
-    List* p = intersection;
-    for (List* p1 = head1; p1 != nullptr; p1 = p1->next) {
-        for (List* p2 = head2; p2 != nullptr; p2 = p2->next) {
-            if (p1->data == p2->data) {
-                if(p1->data == p->data) break;// Add break statement to avoid duplicate elements in the intersection
-                p->next = new List(p1->data, nullptr);
-                p = p->next;
-                break; // Add break statement to avoid duplicate elements in the intersection
-            }
-        }
-    }
-    return intersection->next;
-}
-
-List* getDifference(List* head1, List* head2) {
-    List* difference = new List();
-    List* p = difference;
-    for(List* p1 = head1; p1 != nullptr; p1 = p1->next) {
-        bool flag = true;
-        for(List* p2 = head2; p2 != nullptr; p2 = p2->next) {
-            if(p1->data == p2->data) {
-                flag = false;
-                break;
-            }
-        }
-        if(flag) {
-            if(p1->data == p->data) continue;// Add continue statement to avoid duplicate elements in the difference
-            p->next = new List(p1->data, nullptr);
-            p = p->next;
-        }
-    }
-    return difference->next;
-}
-
-void displayList(List* head) {
-    for(List* p = head; p != nullptr; p = p->next) {
-        cout << p->data << " ";
-    }
-    cout << endl;
-}//displayList
-
-List* sortAndRmDup(List* head) {
-    List* p = head;
-    while(p != nullptr) {
-        List* q = p->next;
-        while(q != nullptr) {
-            if(p->data > q->data) {
-                int temp = p->data;
-                p->data = q->data;
-                q->data = temp;
-            }
-            q = q->next;
-        }
-        p = p->next;
-    }
-    return head;
-}//sortAndRmDup
 int main() {
-    int n1, n2;
-    cin >> n1 >> n2;
-    List* head1 = new List();
-    List* head2 = new List();
-    List* p1 = head1;
-    List* p2 = head2;
-    for(int i = 0; i < n1; i++) {
-        int x;
-        cin >> x;
-        p1->next = new List(x, nullptr);
-        p1 = p1->next;
+
+    while(cin >> len1 >> len2) {
+        Node* head1 = new Node(0, nullptr);
+        Node* head2 = new Node(0, nullptr);
+        
+        int tmp;
+        for(int i = 0; i < len1; i++) {
+            cin >> tmp;
+            head1->insert(tmp);
+        }
+        
+        for(int i = 0; i < len2; i++) {
+            cin >> tmp;
+            head2->insert(tmp);
+        }
+
+        //Union
+        Node* unionHead = new Node(0, nullptr);
+        for(Node* ptr1 = head1->next; ptr1; ptr1 = ptr1->next) {
+            unionHead->insert(ptr1->data);
+        }
+        for(Node* ptr2 = head2->next; ptr2; ptr2 = ptr2->next) {
+            unionHead->insert(ptr2->data);
+        }
+
+        //Intersection
+        Node* intersectionHead = new Node(0, nullptr);
+        
+        for(Node* ptr1 = head1->next; ptr1; ptr1 = ptr1->next) {
+            for(Node* ptr2 = head2->next; ptr2; ptr2 = ptr2->next) {
+                if(ptr1->data == ptr2->data) {
+                    intersectionHead->insert(ptr1->data);
+                    break;//跳出内层循环
+                }
+            }
+        }
+
+        //Difference
+        Node* differenceHead = new Node(0, nullptr);
+        for(Node* ptr1 = head1->next; ptr1; ptr1 = ptr1->next) {
+            bool flag = true;
+            for(Node* ptr2 = head2->next; ptr2; ptr2 = ptr2->next) {
+                if(ptr1->data == ptr2->data) {
+                    flag = false;
+                    break;//跳出内层循环
+                }
+            }
+            if(flag) {//如果ptr1不在head2中
+                differenceHead->insert(ptr1->data);
+            }
+        }
+        
+        //Output
+        for(Node* ptr = unionHead->next; ptr; ptr = ptr->next) {
+            cout << ptr->data << " ";
+        }
+        cout << endl;
+
+        for(Node* ptr = intersectionHead->next; ptr; ptr = ptr->next) {
+            cout << ptr->data << " ";
+        }
+        cout << endl;
+
+        for(Node* ptr = differenceHead->next; ptr; ptr = ptr->next) {
+            cout << ptr->data << " ";
+        }
+        cout << endl;
     }
-    for(int i = 0; i < n2; i++) {
-        int x;
-        cin >> x;
-        p2->next = new List(x, nullptr);
-        p2 = p2->next;
-    }
-    head1 = head1->next;
-    head2 = head2->next;
-    
-    List* unionList = new List();
-    List* intersection = new List();
-    List* difference = new List();
-
-    unionList = getUnion(head1, head2);
-    intersection = getIntersection(head1, head2);
-    difference = getDifference(head1, head2);
-
-    unionList = sortAndRmDup(unionList);
-    intersection = sortAndRmDup(intersection);
-    difference = sortAndRmDup(difference);
-
-    displayList(unionList);
-    displayList(intersection);
-    displayList(difference);
-
-    delete unionList;
-    delete intersection;
-    delete difference;
-    delete head1;
-    delete head2;
-    return 0;
 }
