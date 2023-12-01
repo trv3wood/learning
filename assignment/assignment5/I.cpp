@@ -29,6 +29,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//calculate e1 = (1 + 1 / n) ^ n
+//计算e1 = (1 + 1 / n) ^ n
 long double e1(int n) {
     long double res = 1.0;
     for(int i = 0; i < n; i++)
@@ -36,10 +38,17 @@ long double e1(int n) {
     return res;
 }
 
+//calculate e2 = 1 + 1 / 1! + 1 / 2! + ... + 1 / n!
+//计算e2 = 1 + 1 / 1! + 1 / 2! + ... + 1 / n!
 long double e2(int n) {
     long double res = 1.0;
     long double nnn = 1.0;
+    //note:limit in one loop
+    //or it will be time out
+    //注意：限制在一层循环
+    //否则会超时
     for(int i = 1; i <= n; i++) {
+
         nnn *= (1.0 / i);
         res += nnn;
     }

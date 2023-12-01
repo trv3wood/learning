@@ -22,13 +22,19 @@ int main() {
     while (cin >> n) {
         int i = 0;
         int a[] = { 10, 12, 23, 25, 48, 48, 53, 58, 60, 78 };
+
+        //找到插入位置
         while (a[i] < n) {
             i++;
         }
+        //i是插入位置
         for (int j = 9; j > i; j--) {
+            //后移
             a[j] = a[j - 1];
         }
+        //插入
         a[i] = n;
+        //输出
         for (int i = 0; i < 10; i++) {
             cout << a[i] << " ";
         }

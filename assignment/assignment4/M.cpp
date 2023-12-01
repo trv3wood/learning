@@ -18,20 +18,28 @@ long num[5] = { 20030001, 20030002, 20030005, 20030007, 20030010 };
 样例输出 Copy
 未找到该学生的信息。
 liu xiao ping*/
+
+//方法：简单的map应用
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
+    //用map来存储学号和姓名的对应关系
     map<int, char*> map;
     char name[5][20] = { "li ming", "zhang qing", "liu xiao ping", "wang yin", "lu pei" };
     long num[5] = { 20030001, 20030002, 20030005, 20030007, 20030010 };
+    
+    //这里的map的key是学号减去20030001，value是姓名
     for(int i = 0; i < 5; i++)
         map[num[i] - 20030001] = name[i];
     long n;
     while(cin >> n) {
+
+        //检查输入的学号是否在范围内
         if(n - 20030001 < 0 || n - 20030001 > 10)
             cout << "未找到该学生的信息。" << endl;
         else
+            //检查map中是否有该学号
             if(map.count(n - 20030001))
                 cout << map[n - 20030001] << endl;
             else

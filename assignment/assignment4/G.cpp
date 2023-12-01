@@ -26,6 +26,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//主对角线以下元素之和
+//sumOfElement: to calculate the sum of elements below the main diagonal
+//n: the order of the matrix
 void sumOfElement(int& n) {
     int sum = 0;
     for(int i = n; i > 1; i--)
@@ -33,7 +36,9 @@ void sumOfElement(int& n) {
     cout << sum << endl;
 }
 
-void nMatrix(int n) {
+//n:方阵阶数
+//printMatrix:打印方阵
+void printMatrix(int n) {
     for(int i = 0; i < n; i++) {
         for(int j = i + 1; j > 1; j--)
             cout << j << " ";
@@ -46,8 +51,8 @@ void nMatrix(int n) {
 int main() {
     int n;
     while(cin >> n) {
-        nMatrix(n - 2);
+        printMatrix(n - 2);
         sumOfElement(n);
-        nMatrix(n);
+        printMatrix(n);
     }
 }

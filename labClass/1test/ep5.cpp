@@ -4,7 +4,13 @@ using namespace std;
 // This program prints a pyramid of characters based on user input
 // The first input is a character to be printed
 // The second input is the number of rows in the pyramid
-
+// For example, if the input is 'A' and 5, the output should be:
+//     A
+//    AAA
+//   AAAAA
+//  AAAAAAA
+// AAAAAAAAA
+// The program should keep reading input until the end of file
 int main() {
     char ch;
     int n;

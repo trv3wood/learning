@@ -27,12 +27,15 @@ int main() {
         for(int i = 0; i < num; i++)
             cin >> Scores[i];
 
+        //order[i]表示第i个学生的进退步名次
         vector<int> order(num, 0);
         for(int i = 0; i < num; i++)
             for(int j = 0; j < num; j++)
+                //如果i的成绩比j的成绩低，那么i的名次就要加1
                 if(Scores[i] < Scores[j])
                     order[i]++;
         for(int i = 0; i < num; i++)
+        //第i个学生的名次减去他的学号就是他的进退步名次
             cout << i - order[i] << " ";
         cout << endl;
     }

@@ -25,6 +25,7 @@ using namespace std;
 
 class Solution{
 public:
+    //双指针
     string twoSum(vector<int>& nums,int target){
         vector<int> index(nums.size());
         

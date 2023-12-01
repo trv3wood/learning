@@ -37,7 +37,9 @@ int main() {
             }
         }
         cin >> angle;
+
         if(angle == 90) {
+            //先列后行
             for(int i = 0; i < col; i++) {
                 for(int j = row - 1; j >= 0; j--) {
                     cout << img[j][i] << " ";
@@ -45,6 +47,7 @@ int main() {
                 cout << endl;
             }
         } else if(angle == 180) {
+            //先行后列
             for(int i = row - 1; i >= 0; i--) {
                 for(int j = col - 1; j >= 0; j--) {
                     cout << img[i][j] << " ";
@@ -52,6 +55,7 @@ int main() {
                 cout << endl;
             }
         } else if(angle == 270) {
+            //先列后行
             for(int i = col - 1; i >= 0; i--) {
                 for(int j = 0; j < row; j++) {
                     cout << img[j][i] << " ";

@@ -20,6 +20,7 @@ using namespace std;
 struct scoresList {
     string name;
     int score;
+    scoresList(string name, int score) : name(name), score(score) {}
 };
 
 int main() {
@@ -35,14 +36,17 @@ int main() {
         {"伍晓笑", 68},
         {"张虹虹", 93}
     };
-    int highestScore = 0;
     vector<scoresList> nameList;
+    scoresList highestScorePerson("null", 0);
     for(int i = 0; i < 10; i++) {
-        highestScore = max(highestScore, list[i].score);
+        if(list[i].score > highestScorePerson.score) {            
+            highestScorePerson = list[i];
+        }
     }
     for(int i = 0; i < 10; i++) {
-        if(list[i].score == highestScore)
-            nameList.emplace_back(list[i]);
+        if(list[i].score == highestScorePerson.score) {
+            nameList.push_back(list[i]);
+        }
     }
     for(scoresList person : nameList)
         cout << person.name << " " << person.score << endl;

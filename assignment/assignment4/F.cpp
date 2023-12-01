@@ -13,8 +13,7 @@ wednesday
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     char *week[7] = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
     int n;
     while(cin >> n) 

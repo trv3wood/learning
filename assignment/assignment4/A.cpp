@@ -32,3 +32,14 @@ double dev(vector<double> &v) {
     //});
     //return sqrt(sum / v.size());
 //} 
+int main() {
+    int n;
+    while(cin >> n) {
+        vector<double> v(n);
+        for(int i = 0; i < n; ++i) {
+            cin >> v[i];
+        }
+        cout << ave(v) << " " << dev(v) << endl;
+    }
+    return 0;
+}

@@ -1,3 +1,5 @@
+//加密解密
+//要求：输入一个6位数，加密后输出，再解密输出
 #include <iostream>
 #include <string>
 

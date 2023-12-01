@@ -13,3 +13,28 @@ bool isPalindrome(int x) {
     return x == y;
 }
 //反转字符串hh(to do)
+bool isPalindrome(string s) {
+    int i = 0, j = s.size() - 1;
+    while(i < j) {
+        if(!isalnum(s[i])) {
+            i++;
+            continue;
+        }
+        if(!isalnum(s[j])) {
+            j--;
+            continue;
+        }
+        if(tolower(s[i]) != tolower(s[j]))
+            return false;
+        i++;
+        j--;
+    }
+    return true;
+}
+int main() {
+    string s;
+    while(cin >> s) {
+        cout << isPalindrome(s) << endl;
+    }
+    return 0;
+}

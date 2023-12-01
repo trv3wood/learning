@@ -39,14 +39,23 @@ int main() {
             int count = 0;
             int x = n;
             int lg = 0;
+
+            //计算n的二进制表示中1的个数
             while(x > 0) {
+                //x >> 1表示x除以2
                 x = (x >> 1);
+                //lg表示n的二进制表示的长度
                 lg++;
             }
+
+            //计算n的二进制表示中0的个数
+            //n & (n - 1)表示将n的二进制表示中最右边的1变为0
             while(n > 0) {
                 n &= (n - 1);
                 count++;
             }
+
+            //如果1的个数多于0的个数，那么n就是A类数，否则就是B类数
             if(count > lg - count)
                 A++;
             else

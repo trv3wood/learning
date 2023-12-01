@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+//自行重载函数，实现对两个或三个浮点数的排序
 void _sort(float a,float b) {
     if(a>b){std::cout << a << " " << b <<std::endl;}
     else {std::cout << b << " " << a << std::endl;}

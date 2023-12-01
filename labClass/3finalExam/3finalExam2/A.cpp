@@ -18,6 +18,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//判断是否为有效括号
+//使用栈,遇到左括号入栈,遇到右括号出栈,判断是否匹配,最后判断栈是否为空,为空则为有效括号
+//使用哈希表存储括号对
 bool isVaild(string s) {
     unordered_map<char, char> pairs = {{')', '('}, {']', '['}, {'}', '{'}};
     stack<char> stk;

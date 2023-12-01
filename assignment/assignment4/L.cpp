@@ -15,8 +15,26 @@
 1 5 6 8 9
 1 2 3 4 5 6 7 8 9 10
 10 9 8 7 6 5 4 3 2 1*/
+
+//方法：使用std::reverse函数
+//才不会老老实实地写一个for循环逆置呢
 #include <bits/stdc++.h>
 using namespace std;
+
+//模仿了std::reverse的实现
+void myReverse(vector<int>& v) {
+    auto first = v.begin();
+    auto last = v.end() - 1;
+    if(first == last) {
+        return;
+    }
+    while(first < last) {
+        iter_swap(first, last);
+        first++;
+        last--;
+    }
+    return;
+}
 
 int main() {
     int size;
@@ -27,7 +45,8 @@ int main() {
         for(int num : nums)
             cout << num << " ";
         cout << endl;
-        reverse(nums.begin(), nums.end());
+        myReverse(nums);
+        //std::reverse(nums.begin(), nums.end());
         for(int num : nums)
             cout << num << " ";
         cout << endl;

@@ -142,6 +142,7 @@ int main() {
         }
         cout << endl;
 
+        //remember to delete
         delete head1;
         delete head2;
         delete unionHead;

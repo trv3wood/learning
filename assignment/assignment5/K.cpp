@@ -27,13 +27,17 @@ f(5)
 using namespace std;
 
 int f(int n, int m = 0) {
+    //print message of function call '-'
     for(int i = 0; i < m; i++)
         cout << "-";
+    //print f(n)
     cout << "f(" << n << ")" << endl; 
+    //f(1) = f(2) = 1
     if(n == 1 || n == 2)
         return 1;
     else {
-       return f(n - 1, m + 1) + f(n - 2, m + 1);
+        //f(n) = f(n - 1) + f(n - 2)
+        return f(n - 1, m + 1) + f(n - 2, m + 1);
    }
 }
 

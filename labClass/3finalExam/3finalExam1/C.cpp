@@ -18,17 +18,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//求最大容量
 int maxCapability(vector<int> heights) {
     int Max = 0;
     for(int i = 0; i < heights.size(); i++) {
         for(int j = 0; j < heights.size(); j++) {
+            //tmp为两个高度中较小的那个
             int tmp = min(heights[i], heights[j]);
+
+            //curCapability为当前容量
             int curCapability;
             if(i < j) {
                 curCapability = (j - i) * tmp;
             } else {
                 curCapability = (i - j) * tmp;
             }
+            //更新最大容量
             Max = max(curCapability, Max);
         }
     }

@@ -22,7 +22,10 @@ int *pack(int *a, int n, int &m) {
     m = n;
     int *b = new int[m];
     for (int i = 0; i < n; i++) {
+        //取低8位
         b[i] = a[i] & 0xff;
+        //高于8位的置0
+        //低于8位的不变
     }
     return b;
 }

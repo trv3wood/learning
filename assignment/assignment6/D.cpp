@@ -80,39 +80,16 @@ int main() {
         vector<float> fV2(size);
         autoInput(intV1);
         autoInput(intV2);
-        //for(int i = 0; i < size; i++)
-            //cin >> intV1[i];
-        //for(int i = 0; i < size; i++)
-            //cin >> intV2[i];
         exchange(intV1, intV2);
+
         autoInput(fV1);
         autoInput(fV2);
-        //for(int i = 0; i < size; i++)
-            //cin >> fV1[i];
-        //for(int i = 0; i < size; i++)
-            //cin >> fV2[i];
         exchange(fV1, fV2);
 
         autoPrint(intV1);
         autoPrint(intV2);
         autoPrint(fV1);
         autoPrint(fV2);
-        //for(int var : intV1) {
-            //cout << var << " ";
-        //}
-        //cout << endl;
-        //for(int var : intV2) {
-            //cout << var << " ";
-        //}
-        //cout << endl;
-        //for(float var : fV1) {
-            //cout << var << " ";
-        //}
-        //cout << endl;
-        //for(float var : fV2) {
-            //cout << var << " ";
-        //}
-        //cout << endl;
-
+        
     }
 }

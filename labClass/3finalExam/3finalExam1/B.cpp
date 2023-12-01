@@ -17,6 +17,7 @@ using namespace std;
 string str1;
 string str2;
 
+//判断两个字符串是否包含相同的字符
 bool isSameChar(string& str1, string& str2) {
     for(char c : str1) {
         if(str2.find(c) == string::npos)
@@ -25,6 +26,7 @@ bool isSameChar(string& str1, string& str2) {
     return true;
 }
 
+//判断两个字符串是否包含相同的字符，且字符的位置相同
 bool isSamePos(string& str1, string& str2) {
     for(int i = 0; i < str1.size(); i++) {
         if(str1[i] != str2[i])
