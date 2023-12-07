@@ -12,7 +12,8 @@
             ],
             "cStandard": "c17",
             "cppStandard": "gnu++14",
-            "intelliSenseMode": "windows-gcc-x64"
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerPath": "d:/Program Files/Dev/Mingw64/bin/g++.exe"
         }
     ],
     "version": 4

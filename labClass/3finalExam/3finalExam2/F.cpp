@@ -23,9 +23,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/// @brief class of coins
-/// @note the class includes three attributes: one, five, ten
-/// @note the class includes three methods: shouldGivenBack(private), Pay(private), back(public)
+/// @brief class of coins including three attributes: one, five, ten and three methods: shouldGivenBack(private), Pay(private), back(public)
 class Coins {
 public:
     /// @brief three attributes of coins that store the number of coins
