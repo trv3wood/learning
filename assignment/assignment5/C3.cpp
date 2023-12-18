@@ -1,3 +1,5 @@
+//have bugs
+//created by ChatGPT
 #include <iostream>
 #include <vector>
 
@@ -89,6 +91,6 @@ int main() {
     for (int player : order) {
         cout << player << " ";
     }
-
+    cout << "\n";
     return 0;
 }
