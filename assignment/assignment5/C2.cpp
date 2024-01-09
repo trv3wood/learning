@@ -1,3 +1,5 @@
+//have bugs
+//created by ChatGPT
 #include <iostream>
 #include <vector>
 
@@ -66,7 +68,7 @@ int main() {
 
     vector<int> order = findOrder(n);
 
-    cout << "Order of players going out of the ring: ";
+    cout << "Order of players going out of the ring:  " << "\n";
     for (int player : order) {
         cout << player << " ";
     }
