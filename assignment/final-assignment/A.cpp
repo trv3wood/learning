@@ -14,7 +14,19 @@
 98,765,432,198,765,432,198,765,432,198,765,432,198,765,432,198,765
 样例输出 Copy
 1,333,333,333,333,333,333,333,333,333,333,333,333
-86,419,753,297,530,864,308,641,975,409,753,086,519,864,197,630,875*/
+86,419,753,297,530,864,308,641,975,409,753,086,519,864,197,630,875
+
+样例输入 Copy
+2
+-
+1,111,111,111,111,111,111,111,111,111,111,111,111
+222,222,222,222,222,222,222,222,222,222,222,222
+-
+-12,345,678,901,234,567,890,123,456,789,012,345,678,901,234,567,890
+98,765,432,198,765,432,198,765,432,198,765,432,198,765,432,198,765
+*/
+
+// 首先是面向过程的解法
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -100,9 +112,35 @@ bool isNegative(string num) {
     return !num.empty() && num[0] == '-';
 }
 
+string computeResult(char operation, string num1, string num2) {
+    bool neg1 = isNegative(num1);
+    bool neg2 = isNegative(num2);
+
+    if (neg1) removeSign(num1);
+    if (neg2) removeSign(num2);
+
+    string result;
+    if (operation == '+') {
+        if (neg1 == neg2) { // 同号相加
+            result = longIntAdd(num1, num2);
+            if (neg1) result = '-' + result;
+        } else { // 异号相加
+            result = (neg1 ? subtract(num2, num1) : subtract(num1, num2));
+        }
+    } else if (operation == '-') {
+        if (neg1 == neg2) { // 同号相减
+            result = (neg1 ? subtract(num2, num1) : subtract(num1, num2));
+        } else { // 异号相减
+            result = longIntAdd(num1, num2);
+            if (neg1) result = '-' + result;
+        }
+    }
+
+    return result;
+}
+
 int main() {
     while (cin >> sets) {
-        int num;
         while (sets--) {
             char operation;
             string num1, num2;
@@ -120,38 +158,10 @@ int main() {
                 }
             }
             string result = "";
-            if (operation == '+') {
-                if (isNegative(num1) && isNegative(num2)) {
-                    removeSign(num1);
-                    removeSign(num2);
-                    result = '-' + longIntAdd(num1, num2);
-                } else if (isNegative(num1) && !isNegative(num2)) {
-                    removeSign(num1);
-                    result = subtract(num2, num1);
-                } else if (!isNegative(num1) && isNegative(num2)) {
-                    removeSign(num2);
-                    result = subtract(num1, num2);
-                } else if (!isNegative(num1) && !isNegative(num2)) {
-                    result = longIntAdd(num1, num2);
-                }
-            } else if (operation == '-') {
-                if (isNegative(num1) && isNegative(num2)) {
-                    removeSign(num1);
-                    removeSign(num2);
-                    result = subtract(num2, num1);
-                } else if (isNegative(num1) && !isNegative(num2)) {
-                    removeSign(num1);
-                    result = '-' + longIntAdd(num1, num2);
-                } else if (!isNegative(num1) && isNegative(num2)) {
-                    removeSign(num2);
-                    result = longIntAdd(num1, num2);
-                } else if (!isNegative(num1) && !isNegative(num2)) {
-                    result = subtract(num1, num2);
-                }
-            }
+            result = computeResult(operation, num1, num2);
             // 加逗号
             int len = result.size();
-            for (int i = len - 3; i > 0; i -= 3) {
+            for (int i = len - 3; i > 1; i -= 3) {
                 result.insert(i, ",");
             }
             cout << result << endl;
