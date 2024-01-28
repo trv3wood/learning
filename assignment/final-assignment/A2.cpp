@@ -28,42 +28,86 @@ struct LongInteger {
     bool isNegative;  // 表示长整数是否为负
 
     // 构造函数
-    LongInteger(string val) {
-        removeComma(val);
-        if (val[0] == '-') {
-            isNegative = true;
-            value = val.substr(1);
-        } else {
-            isNegative = false;
-            value = val;
-        }
-    }
+    LongInteger(string val); 
 
     // 转换回字符串表示
-    string toString() const {
-        string result = value;
-
-        int len = result.size();
-        for (int i = len - 3; i > 0; i -= 3) {
-            result.insert(i, ",");
-        }
-        return isNegative ? "-" + result: result;
-    }
+    string toString() const; 
 private:
     // 移除字符串表示中的逗号
-    void removeComma(string& value) {
-        int len = value.size();
-        for (int i = 0; i < len; i++) {
-            if (value[i] == ',') {
-                value.erase(i, 1);
-                i--;
-            }
-        }
-    }
+    void removeComma(string& value); 
 };
 
-string add(const LongInteger& num1, const LongInteger& num2) {
     // 实现加法逻辑
+string add(const LongInteger& num1, const LongInteger& num2); 
+
+    // 实现减法逻辑
+string subtract(const LongInteger num1, const LongInteger num2); 
+
+int sets = 0;
+
+int main() {
+    while (cin >> sets) {
+        string num1, num2;
+        char operation;
+        while (sets--) {
+            cin >> operation >> num1 >> num2;
+            LongInteger longNum1(num1), longNum2(num2);
+            string result;
+            
+            if (operation == '+') {
+                if (longNum1.isNegative == longNum2.isNegative) {
+                    result = add(longNum1, longNum2);
+                    if (longNum1.isNegative) result = '-' + result;
+                } else {
+                    result = longNum1.isNegative ? subtract(longNum2, longNum1) : subtract(longNum1, longNum2);
+                }
+            } else if (operation == '-') {
+                if (longNum1.isNegative == longNum2.isNegative) {
+                    result = longNum1.isNegative ? subtract(longNum2, longNum1) : subtract(longNum1, longNum2);
+                } else {
+                    result = add(longNum1, longNum2);
+                    if (longNum1.isNegative) result = '-' + result;
+                }
+            }
+            LongInteger longResult(result);
+            cout << longResult.toString() << endl;
+        }
+    }
+    return 0;
+}
+
+LongInteger::LongInteger(string val) {
+    removeComma(val);
+    if (val[0] == '-') {
+        isNegative = true;
+        value = val.substr(1);
+    } else {
+        isNegative = false;
+        value = val;
+    }
+} 
+
+string LongInteger::toString() const {
+    string result = value;
+
+    int len = result.size();
+    for (int i = len - 3; i > 0; i -= 3) {
+        result.insert(i, ",");
+    }
+    return isNegative ? "-" + result: result;
+}
+
+void LongInteger::removeComma(string& value) {
+    int len = value.size();
+    for (int i = 0; i < len; i++) {
+        if (value[i] == ',') {
+            value.erase(i, 1);
+            i--;
+        }
+    }
+}
+
+string add(const LongInteger& num1, const LongInteger& num2) {
     string res;
     int carry = 0;
     int index1 = num1.value.size() - 1;
@@ -87,7 +131,6 @@ string add(const LongInteger& num1, const LongInteger& num2) {
 }
 
 string subtract(const LongInteger num1, const LongInteger num2) {
-    // 实现减法逻辑
     if (num1.value < num2.value) {
         string res = subtract(num2, num1); // 递归调用
         if (res != "0") { // 避免在结果为0时添加负号
@@ -125,37 +168,4 @@ string subtract(const LongInteger num1, const LongInteger num2) {
     }
     reverse(res.begin(), res.end());
     return res;
-};
-
-int sets = 0;
-
-int main() {
-    while (cin >> sets) {
-        string num1, num2;
-        char operation;
-        while (sets--) {
-            cin >> operation >> num1 >> num2;
-            LongInteger longNum1(num1), longNum2(num2);
-            string result;
-            
-            if (operation == '+') {
-                if (longNum1.isNegative == longNum2.isNegative) {
-                    result = add(longNum1, longNum2);
-                    if (longNum1.isNegative) result = '-' + result;
-                } else {
-                    result = longNum1.isNegative ? subtract(longNum2, longNum1) : subtract(longNum1, longNum2);
-                }
-            } else if (operation == '-') {
-                if (longNum1.isNegative == longNum2.isNegative) {
-                    result = longNum1.isNegative ? subtract(longNum2, longNum1) : subtract(longNum1, longNum2);
-                } else {
-                    result = add(longNum1, longNum2);
-                    if (longNum1.isNegative) result = '-' + result;
-                }
-            }
-            LongInteger longResult(result);
-            cout << longResult.toString() << endl;
-        }
-    }
-    return 0;
 }

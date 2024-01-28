@@ -244,6 +244,7 @@ private:
         reverse(res.begin(), res.end());
         return res;
     }
+
     string longIntMinus(const string& num1, const string& num2) {
         // num1, num2 >= 0
         if (cmpAbsoluteVal(num2, num1)) return '-' + longIntMinus(num2, num1);

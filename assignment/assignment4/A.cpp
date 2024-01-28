@@ -1,7 +1,9 @@
 //已知计算成绩的平均值和均方差公式分别为： ave ＝ 和 dev=
 //人数n， Si 为第 i 个学生的成绩。求某班学生的平均成绩和均方差。
 //输入：第一行为人数n，第二行为n个学生的成绩。
-#include <bits/stdc++.h>
+#include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 double ave(vector<double> &v) {

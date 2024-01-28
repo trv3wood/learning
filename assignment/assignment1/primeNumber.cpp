@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 
 bool isPrime(int number) {
     if (number <= 1) {
@@ -17,6 +17,7 @@ bool isPrime(int number) {
     }
     return true;
 }
+
 
 int main() {
     std::cout << "Prime numbers from 1 to 100:" << std::endl;

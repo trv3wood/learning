@@ -1,5 +1,6 @@
 //输入产生 10 个互不相同的两位整数存放到一维数组中，并输出其中的素数
 #include <bits/stdc++.h>
+
 using namespace std;
 
 int main() {
