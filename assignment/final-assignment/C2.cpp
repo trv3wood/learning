@@ -37,26 +37,37 @@
 using namespace std;
 
 class Integer {
+private:
+    static const int BASE = 1000;
+    static const int WIDTH = 3;
+
+    void removeLeadingZeros() {
+        while (!nums.empty() && nums.back() == 0) {
+            nums.pop_back();
+        }
+    }
 public:
-    static const int BASE = 10;
-    static const int WIDTH = 1;
-    vector<short> s;
+    vector<int> nums;
 
     Integer(long long num = 0) {
         *this = num;
-        for (int n : s) cout << n << endl;
     }
-
     Integer operator=(long long num);
     Integer operator=(const string& str);
+
+    Integer(const std::string& number) {
+        *this = number;
+    }
 
     bool operator<(const Integer& other) const;
     bool operator>(const Integer& other) const;
     bool operator<=(const Integer& other) const;
     bool operator>=(const Integer& other) const;
 
-    bool operator!=(const Integer& other) const;
     bool operator==(const Integer& other) const;
+    bool operator!=(const Integer& other) const {
+        return !(*this == other);
+    }
 
     Integer operator+(const Integer& other) const;
     Integer operator+=(const Integer& other) {
@@ -64,20 +75,38 @@ public:
         return *this;
     }
 
-    Integer operator-=(const Integer& other);
+    Integer operator-(const Integer& other);
+    Integer operator-=(const Integer& other) {
+        *this = *this - other;
+        return *this;
+    }
+
+    Integer mod(const Integer& other) const;
 
 };
 
+int main() {
+    Integer i1; 
+    i1 = "2354634634";
+}
+
 Integer Integer::operator=(long long num) {
     do {
-        s.emplace_back(num % BASE);
+        nums.push_back(num % BASE);
         num /= BASE;
     } while (num > 0);
 
     return *this; 
 }
 
-Integer Integer::operator=(const string& str) {
-    s.clear();
-    
+Integer Integer::operator=(const string& number) {
+    nums.clear();
+    for (int i = number.size(); i > 0; i -= WIDTH) {
+        int length = std::max(i - WIDTH, 0);
+        int num = std::stoi(number.substr(length, i - length));
+        nums.push_back(num);
+    }
+    // for (int n : nums) cout << "[debug] operator= s[i]: " << n << endl;
+    removeLeadingZeros();
+    return *this;
 }
