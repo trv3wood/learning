@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/oj3I.dir/Fabricate.cpp.o CMakeFiles/oj3I.dir/Multi.cpp.o CMakeFiles/oj3I.dir/main.cpp.o -o oj3I 
