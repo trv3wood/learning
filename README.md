@@ -1,1 +1,1 @@
-This branch is created by a NPUe student learning C.
+This branch is created by a NPU student learning C.
