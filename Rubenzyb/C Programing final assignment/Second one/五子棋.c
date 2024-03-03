@@ -1,3 +1,8 @@
+/*
+ * 期待多开一个线程监视玩家是否输入了诸如`save&quit`命令, 
+ * 玩游戏的时候总是冒出是否保存退出有点打断体验的感觉
+ * by Z YS
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

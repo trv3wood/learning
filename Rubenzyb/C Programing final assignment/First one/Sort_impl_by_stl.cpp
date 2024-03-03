@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 #include <fstream>
 #include <iostream>
 #include <list>
@@ -19,9 +22,32 @@ struct StudentNode {
 };
 
 void tlsFirstSort(std::list<StudentNode>& List) {
-    List.sort([&](StudentNode prv, StudentNode next)-> bool {
+    List.sort([&](StudentNode prv, StudentNode next) -> bool {
         return prv.tlscore > next.tlscore;
     });
+}
+
+void objFirstSort(std::list<StudentNode>& List) {
+    List.sort([&](StudentNode prv, StudentNode next) -> bool {
+        return prv.objscore > next.objscore;
+    });
+}
+
+void sbjFirstSort(std::list<StudentNode>& List) {
+    List.sort([&](StudentNode prv, StudentNode next) -> bool {
+        return prv.sbjscore > next.sbjscore;
+    });
+}
+
+void printList(const std::list<StudentNode>& List) {
+    for (auto curr = List.begin(); curr != List.end(); curr++) {
+        printf("%-15s	", curr->major.c_str());
+		printf("%10s	", curr->major.c_str());
+		printf("%10d	", curr->ID);
+		printf("%-8d", curr->tlscore);
+		printf("%-8d", curr->objscore);
+		printf("%-8d\n", curr->sbjscore);
+    }
 }
 
 int main() {
@@ -40,13 +66,12 @@ int main() {
         StudentNode* someone = new StudentNode(major, cla, id, tls, obj, sbj);
         List.push_back(*someone);
     }
-    for (auto curr = List.begin(); curr != List.end(); curr++) {
-        std::cout << curr->tlscore << std::endl;
-    }
-    std::cout << "-------" << std::endl;
+    std::cout << "origin list: " << '\n';
+    printList(List);
+    std::cout << "-------" << '\n';
+    
     tlsFirstSort(List);
-    for (auto curr = List.begin(); curr != List.end(); curr++) {
-        std::cout << curr->tlscore << std::endl;
-    }
-}
+    printList(List);
+    std::cout << "-------" << '\n';
 
+}
