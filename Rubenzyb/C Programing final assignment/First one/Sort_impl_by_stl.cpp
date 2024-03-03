@@ -5,6 +5,7 @@
 #include <iostream>
 #include <list>
 #include <sstream>
+#include <stdexcept>
 #include <string>
 struct StudentNode {
     std::string major;
@@ -69,9 +70,25 @@ int main() {
     std::cout << "origin list: " << '\n';
     printList(List);
     std::cout << "-------" << '\n';
-    
-    tlsFirstSort(List);
+    printf("Which type of data do you want to sort based on?\n"
+        "Please use the serial number to select from the three types below:\n"
+        " 1.tlscore; 2.objscore; 3.sbjscore.\n ");
+    int choice;
+    std::cin >> choice;
+    switch (choice) {
+        case 1:
+            tlsFirstSort(List);
+            break;
+        case 2:
+            objFirstSort(List);
+            break;
+        case 3:
+            sbjFirstSort(List);
+            break;
+        default:
+            throw std::invalid_argument("What you entered does not conform to the specification,!Please try again!\n");
+    }
+    std::cout << "sorted list: " << '\n';
     printList(List);
-    std::cout << "-------" << '\n';
-
+    return 0;
 }
