@@ -1,5 +1,6 @@
 /*
- * 
+ * 基于STL链表实现的快速排序, 好处是减少代码量, 坏处是偷懒
+ * by Z YS
  */
 #include <fstream>
 #include <iostream>
