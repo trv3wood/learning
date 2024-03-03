@@ -1,6 +1,7 @@
 //这段代码实现了归并排序，
 //归并排序是一种分治算法。它的工作原理是将一个大数组分解成两个小数组，然后对这两个小数组进行排序，最后将这两个已排序的小数组合并成一个大数组。
 #include <stdio.h>
+#include <string.h>
 typedef struct
 {
     char major[22];

@@ -15,6 +15,7 @@ typedef struct
  * C语言有读写文件的函数, 例如: 
  * FILE* f;
  * f = fopen("file.txt", "w");
+ * 然后再解析单词
  * by Z YS
  */
 type data[195] = {
